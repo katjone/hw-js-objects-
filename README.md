@@ -15,7 +15,6 @@
 * Follow the instructions provided in the `main.js` file in the `starter-code` folder.
 * Open the `index.html` file and examine the console in the Developer Tools. Look here to see if your code is producing the correct results.
 * Determine a test to validate your code.
-* Submit 2-5 questions that you would like addressed regarding this homework.
 
 ### Directions
 
