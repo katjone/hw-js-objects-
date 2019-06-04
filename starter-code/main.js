@@ -5,6 +5,38 @@
 	and a makeNoise property that prints out their noise.
 */
 
+let dog = {
+	name: 'Dingo',
+	noise: 'Woof woof',
+	makeNoise: function () {
+		console.log(this.noise)
+	}
+}
+
+let cat = {
+  name: "Whiskers",
+  noise: "Hisss",
+  makeNoise: function() {
+    console.log(this.noise);
+  }
+};
+
+let bird = {
+  name: "Sweety Bird",
+  noise: "Tweet-a-leet",
+  makeNoise: function() {
+    console.log(this.noise);
+  }
+};
+
+let mouse = {
+  name: "Squeekers",
+  noise: "squeek",
+  makeNoise: function() {
+    console.log(this.noise);
+  }
+};
+
 /*
 	Part 2: Let's use an array to hold all of these animals.
 	Create a new variable, animals, that contains the 4 animals we just created.
@@ -13,7 +45,11 @@
 
 	Hint: Use the makeNoise() function for each animal in the array
 */
+let animals = [ dog, cat, bird , mouse]
 
+for (let i = 0; i < animals.length; i++) {
+	animals[i].makeNoise();
+}
 /*
 	Part 3: Let's see how hungry these animals get by adding a "hunger" property to them.
 	Use a for-loop to iterate through the array of animals and add a "hunger" property with
@@ -25,6 +61,10 @@
 	myObject['newPropertyName'] = newValue;
 */
 
+for (let i = 0; i < animals.length; i++) {
+  animals[i].hunger = 10;
+  console.log(animals[i])
+}
 /*
 	Part 4: These animals should be able to walk. Let's add a new "walk" property to them.
 	For each animal, the "walk" property should be a function that prints out a string that
@@ -43,6 +83,22 @@
 
 	Hint: You will need the "this" keyword
 */
+
+// for (let i = 0; i < animals.length; i++) {
+//   animals[i].walk = function () {
+// 	console.log(`${animals[i]} took a walk!!!`);
+// 	animals[i].hunger--
+//   };
+// }
+for (let i = 0; i < animals.length; i++) {
+  animals[i].walk = function () {
+	console.log(`${this.name} took a walk!!!`);
+	this.hunger--
+  };
+}
+
+dog.walk()
+console.log('Dog hunger = ', dog.hunger)
 
 /*
 	Part 5: Now these animals can walk and talk by themselves, but they're quite lonely.
@@ -65,7 +121,17 @@
 	duck.friend.makeNoise();
 	// => "chirp quack"
 */
+for (let i = 0; i < animals.length; i++) {
+	animals[i].makeFriend = function(friend) {
+		this.friend = friend;
+	};
+	console.log(animals[i]);
+}
 
+bird.makeFriend(mouse);
+console.log(`${bird.name} is friends with ${bird.friend.name}.`)
+console.log(`${bird.name} is friends with`, bird.friend)
+bird.friend.makeNoise()
 
 /* BONUS
 This bonus will be a challenge! To complete this step, you'll need to do some Googling to look up things that have not yet been covered.
